@@ -34,7 +34,7 @@ function WidgetContent() {
           <p>A Space retated to creating, practicing an...</p>
         </div>
       </div>
-      <div className="widget__content">
+      {/* <div className="widget__content">
         <img
           src="https://qphs.fs.quoracdn.net/main-thumb-ti-1647318-100-kmwvqbpzatmylibelrowrerfqbspekwo.jpeg"
           alt=""
@@ -63,7 +63,7 @@ function WidgetContent() {
           <h5>Architecture World</h5>
           <p>All about civil architecture...</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

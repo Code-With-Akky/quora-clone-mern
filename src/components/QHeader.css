@@ -1,9 +1,7 @@
 .qHeader {
   display: flex;
   align-items: center;
-  background-color: white !important;
-  width: 100%;
-
+  background-color: #fff;
   position: sticky;
   z-index: 1000;
   top: 0px;
@@ -15,8 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
-  margin-top: 10px;
+  padding: 5px;
 }
 
 .qHeader__logo > img {
@@ -35,18 +32,17 @@
 .qHeader__icon:hover {
   background-color: #eee;
   border-radius: 5px;
-  color: #b92b27;
 }
 
 .qHeader__icon > .MuiSvgIcon-root {
-  color: #222;
+  color: gray;
   font-size: xx-large;
   margin-left: 20px;
   margin-right: 20px;
 }
 
-.qHeader__icon > .MuiSvgIcon-root:hover {
-  color: #b92b27;
+.qHeader__icon:hover > .MuiSvgIcon-root {
+  color: #000;
 }
 
 /* .qHeader__icons {
@@ -107,20 +103,20 @@
   cursor: pointer;
 }
 .qHeader__Rem > .MuiSvgIcon-root:hover {
-  color: #b92b27;
+  color: #000;
 }
 
 .qHeader__Rem > .MuiButton-root {
   color: white;
-  background: #b92b27;
+  background: #222;
   text-transform: inherit;
-  border-radius: 20px;
+  border-radius: 5px;
   margin-left: 25px;
 }
 
 .qHeader__Rem > .MuiButton-root:hover {
-  color: #ffffff;
-  background: #8f1f1b;
+  color: #222;
+  background: rgb(214, 214, 214);
 }
 
 .modal__title {
@@ -203,17 +199,27 @@
   border-radius: 33px;
   cursor: pointer;
 }
+
+.modal__buttons > .cancle:hover {
+  color: red;
+}
+
 .modal__buttons > .add {
   border: none;
   outline: none;
   margin-top: 10px;
-  background-color: rgb(0, 64, 255);
+  background-color: #222;
   color: white;
   font-weight: 700;
   padding: 10px;
   border-radius: 33px;
   cursor: pointer;
   width: 50%;
+}
+
+.modal__buttons > .add:hover {
+  background-color: #eee;
+  color: #222;
 }
 
 @media only screen and (max-width: 600px) {

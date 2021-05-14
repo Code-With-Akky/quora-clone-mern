@@ -79,7 +79,8 @@
 }
 
 .login__authOption:hover {
-  background-color: rgb(226, 226, 226);
+  background-color: #222;
+  color: #eee;
 }
 
 .login__authOption > img {
@@ -168,22 +169,30 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background-color: blue;
+  background-color: #222;
   color: white;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 15px;
   cursor: pointer;
 }
+.login__forgButt > button:hover {
+  background-color: #eee;
+  color: #222;
+}
 
+.login__emailPass > button:hover {
+  background-color: #eee;
+  color: #222;
+}
 .login__emailPass > button {
   padding: 10px;
   border-radius: 5px;
   border: none;
   outline: none;
   width: 100%;
-  background-color: blue;
+  background-color: #222;
   color: white;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 15px;
   cursor: pointer;
   margin-top: 10px;

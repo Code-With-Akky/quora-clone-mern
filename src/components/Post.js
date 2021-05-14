@@ -50,6 +50,7 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
     console.log(questionId);
     setAnswer("");
     setIsModalOpen(false);
+    alert("Answer added successfully");
   };
   return (
     <div

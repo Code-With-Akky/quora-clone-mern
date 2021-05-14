@@ -10,9 +10,12 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const signIn = () => {
-    auth.signInWithPopup(provider).catch((e) => {
-      alert(e.message);
-    });
+    auth
+      .signInWithPopup(provider)
+      .then((auth) => alert("Signed In"))
+      .catch((e) => {
+        alert(e.message);
+      });
   };
 
   const handleSignIn = (e) => {
@@ -21,7 +24,8 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
+        //console.log(auth);
+        alert("Signed In successfully");
       })
       .catch((e) => alert(e.message));
   };
@@ -33,7 +37,8 @@ function Login() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         if (auth) {
-          console.log(auth);
+          //console.log(auth);
+          alert("Registered successfully");
         }
       })
       .catch((e) => alert(e.message));

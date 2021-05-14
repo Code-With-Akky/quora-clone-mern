@@ -5,7 +5,6 @@ import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedI
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import SearchIcon from "@material-ui/icons/Search";
-import LanguageIcon from "@material-ui/icons/Language";
 import logo from "./img/QAS logo.png";
 import Modal from "react-modal";
 
@@ -42,6 +41,14 @@ function QHeader() {
 
     setInput("");
     setInputUrl("");
+    alert("Question added successfully");
+  };
+
+  const handleLogout = () => {
+    if (window.confirm("Are you sure to lougout?")) {
+      auth.signOut();
+      //alert("Logged out successfully");
+    }
   };
 
   return (
@@ -74,7 +81,7 @@ function QHeader() {
         <div className="qHeader__Rem">
           <div className="qHeader__avatar">
             <Avatar
-              onClick={() => auth.signOut()}
+              onClick={handleLogout}
               className="Avatar"
               src={
                 user.photo
@@ -83,7 +90,6 @@ function QHeader() {
               }
             />
           </div>
-          <LanguageIcon />
           <Button onClick={() => setIsModalOpen(true)}>Add Question</Button>
           <Modal
             isOpen={IsmodalOpen}
