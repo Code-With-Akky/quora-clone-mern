@@ -89,14 +89,15 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
             shouldCloseOnOverlayClick={false}
             style={{
               overlay: {
-                width: 680,
+                padding: 0,
+                width: window.innerWidth > 600 ? 700 : 400,
                 height: 550,
                 backgroundColor: "rgba(0,0,0,0.8)",
                 zIndex: "1000",
-                top: "50%",
+                top: "10%",
                 left: "50%",
-                marginTop: "-250px",
-                marginLeft: "-350px",
+                // marginTop: window.innerWidth > 600 ? "-300px" : "-250px",
+                marginLeft: window.innerWidth > 600 ? "-350px" : "-200px",
               },
             }}
           >
@@ -134,8 +135,8 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
         </div>
         <div className="post__answer">
           {getAnswers.map(({ id, answers }) => (
-            <p key={id} style={{ position: "relative", paddingBottom: "5px" }}>
-              {Id === answers.questionId ? (
+            <p key={id} style={{ position: "relative", paddingBottom: "0px" }}>
+              {Id === answers.questionId && (
                 <span>
                   {answers.answer}
                   <br />
@@ -148,7 +149,7 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
                       right: "0px",
                     }}
                   >
-                    <span style={{ color: "#b92b27" }}>
+                    <span style={{ marginBottom: "2px", color: "#b92b27" }}>
                       {answers.user.displayName
                         ? answers.user.displayName
                         : answers.user.email}{" "}
@@ -157,8 +158,6 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
                     </span>
                   </span>
                 </span>
-              ) : (
-                ""
               )}
             </p>
           ))}

@@ -26,7 +26,7 @@ function App() {
       console.log(authUser);
     });
   }, [dispatch]);
-  return <div className="App">{user ? <Quora /> : <Login />}</div>;
+  return <>{user ? <Quora /> : <Login />}</>;
 }
 
 export default App;

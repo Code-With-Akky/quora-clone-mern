@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { auth, provider } from "../../firebase";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import logo from "../img/QAS logo.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -40,34 +42,27 @@ function Login() {
     <div className="login">
       <div className="login__container">
         <div className="login__logo">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/250px-Quora_logo_2015.svg.png"
-            alt=""
-          />
+          <img src={logo} alt="" />
         </div>
-        <div className="login__desc">
+        {/* <div className="login__desc">
           <p>A Place to Share knowledge and better understand the world</p>
           <p style={{ color: "royalblue", fontSize: "25px" }}>
             HandCrafted with ❤️ by{" "}
           </p>
           <h3>Code With Akky</h3>
-        </div>
+        </div> */}
         <div className="login__auth">
           <div className="login__authOptions">
             <div className="login__authOption">
               <img
                 className="login__googleAuth"
-                src="https://media-public.canva.com/MADnBiAubGA/3/screen.svg"
+                src="https://www.pngjoy.com/pngm/880/10354340_google-icon-google-icon-svg-white-transparent-png.png"
                 alt=""
               />
               <p onClick={signIn}>Continue With Google</p>
             </div>
             <div className="login__authOption">
-              <img
-                className="login__googleAuth"
-                src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo-500x350.png"
-                alt=""
-              />
+              <FacebookIcon />
               <span>Continue With Facebook</span>
             </div>
             <div className="login__authDesc">
@@ -76,7 +71,7 @@ function Login() {
                   Sign Up With Email
                 </span>
                 . By continuing you indicate that you have read and agree to
-                Quora's
+                QAS's
                 <span style={{ color: "blue", cursor: "pointer" }}>
                   Terms of Service{" "}
                 </span>
@@ -89,9 +84,7 @@ function Login() {
             </div>
           </div>
           <div className="login__emailPass">
-            <div className="login__label">
-              <h4>Login</h4>
-            </div>
+            <h4>Authetication</h4>
             <div className="login__inputFields">
               <div className="login__inputField">
                 <input
@@ -117,11 +110,11 @@ function Login() {
             <button onClick={registerSignIn}>Register</button>
           </div>
         </div>
-        <div className="login__lang">
+        {/* <div className="login__lang">
           <p>हिन्दी</p>
           <ArrowForwardIosIcon fontSize="small" />
-        </div>
-        <div className="login__footer">
+        </div> */}
+        {/* <div className="login__footer">
           <p>About</p>
           <p>Languages</p>
           <p>Careers</p>
@@ -130,7 +123,7 @@ function Login() {
           <p>Terms</p>
           <p>Contact</p>
           <p>&copy; Quora Fake Inc. 2021</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

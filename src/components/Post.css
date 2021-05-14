@@ -161,19 +161,19 @@
 .modal__button {
   display: flex;
   align-items: center;
-  margin-right: -20px;
-  border-top: 1px solid lightgray;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .modal__button > .cancle {
-  margin-left: auto;
   border: none;
-  margin-top: 5px;
+  margin-top: 10px;
   outline: none;
   color: gray;
   font-weight: 500;
   padding: 10px;
-  margin-right: 10px;
   border-radius: 33px;
   cursor: pointer;
 }
@@ -185,7 +185,7 @@
   color: white;
   font-weight: 700;
   padding: 10px;
-  margin-right: 10px;
   border-radius: 33px;
   cursor: pointer;
+  width: 50%;
 }

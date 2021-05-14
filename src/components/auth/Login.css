@@ -4,22 +4,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png");
+  min-width: fit-content;
+  height: 100%;
+  /* background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png"); */
 }
 
 .login__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
   padding: 20px;
-  width: 700px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.924);
   border-radius: 10px;
 }
 
 .login__logo {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
+}
+
+.login__logo > img {
+  max-width: 200px;
+  object-fit: contain;
 }
 
 .login__desc {
@@ -44,20 +54,23 @@
 
 .login__auth {
   display: flex;
-  margin-top: 50px;
 }
 
 .login__authOptions {
+  margin-top: 50px;
   display: flex;
-  flex: 0.5;
   flex-direction: column;
-  padding: 20px;
-  border-right: 1px solid lightgray;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5;
 }
 
 .login__authOption {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+  min-width: 80%;
   padding: 7px;
   margin-bottom: 15px;
   border: 1px solid lightgray;
@@ -74,6 +87,12 @@
   object-fit: contain;
 }
 
+.login__authOption > .MuiSvgIcon-root {
+  font-size: xx-large;
+  margin-right: 7px;
+  color: blue;
+}
+
 .login__authOption > p {
   margin-left: 11px;
 }
@@ -87,6 +106,7 @@
 .login__authDesc > p {
   font-size: small;
   color: gray;
+  text-align: center;
 }
 
 .login__emailPass {
@@ -98,18 +118,24 @@
   margin-left: 20px;
 }
 
-.login__label > h4 {
+.login__emailPass > h4 {
   padding: 5px;
+  text-align: center;
 }
 
 .login__inputFields {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding: 5px;
 }
 
 .login__inputField {
   padding: 5px;
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .login__inputField > input {
@@ -150,10 +176,11 @@
 }
 
 .login__emailPass > button {
-  padding: 9px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
   outline: none;
+  width: 100%;
   background-color: blue;
   color: white;
   font-weight: bold;
@@ -204,4 +231,48 @@
 
 .login__footer > p:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__auth {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  .login__authOptions {
+    display: flex;
+    width: 100%;
+    border-right: none;
+    flex: 1;
+  }
+
+  .login__emailPass {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 0;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .login__forgButt {
+    display: flex;
+    width: 100%;
+  }
+
+  .login__emailPass > button {
+    width: 50%;
+  }
+
+  .login__label > h4 {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .login__authDesc {
+    margin-bottom: 0px;
+  }
 }
