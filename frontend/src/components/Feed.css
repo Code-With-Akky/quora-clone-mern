@@ -1,0 +1,12 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  flex: 0.6;
+}
+
+@media only screen and (max-width: 600px) {
+  .feed {
+    flex: 1;
+    padding: 20px;
+  }
+}

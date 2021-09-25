@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  height: 100vh;
+  /* background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png"); */
+  background: url("https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.home_page_bg_desktop.png-26-4770753d59b970e1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  /* width: 100%; */
+  /* padding: 20px; */
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.login__logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.login__logo > img {
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.login__desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-top: 10px; */
+}
+
+.login__desc > h3 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: xx-large;
+  font-family: "Cedarville Cursive", cursive;
+}
+.login__desc > p {
+  color: gray;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.login__auth {
+  display: flex;
+}
+
+.login__authOptions {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5;
+  margin: 10px;
+}
+
+.login__authOption {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* width: 100%; */
+  /* margin: 10px; */
+  min-width: 80%;
+  padding: 7px;
+  margin-bottom: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login__authOption:hover {
+  background-color: #222;
+  color: #eee;
+}
+
+.login__authOption > img {
+  height: 30px;
+  object-fit: contain;
+}
+
+/* .login__authOption > .MuiSvgIcon-root {
+  font-size: xx-large;
+  margin-right: 7px;
+  color: blue;
+} */
+
+.login__authOption > p {
+  margin-left: 11px;
+}
+.login__authOption > span {
+  margin-left: 11px;
+}
+.login__authDesc {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  margin-bottom: 15px;
+}
+.login__authDesc > p {
+  font-size: small;
+  color: gray;
+  text-align: center;
+}
+
+.login__emailPass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  flex: 0.5;
+  margin-left: 20px;
+}
+
+.login__emailPass > h4 {
+  padding: 5px;
+  text-align: center;
+}
+
+.login__inputFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+}
+
+.login__inputField {
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.login__inputField > input {
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border: 1px solid lightgray;
+  background-color: rgb(236, 236, 236);
+  border-radius: 3px;
+}
+
+.login__inputField > input:focus {
+  border: 2px solid #000;
+}
+
+.login__forgButt {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login__forgButt > small {
+  color: gray;
+  cursor: pointer;
+}
+
+.login__forgButt > small:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.login__forgButt > button {
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+.login__forgButt > button:hover {
+  background-color: #eee;
+  color: #222;
+}
+
+.login__emailPass > button:hover {
+  background-color: #eee;
+  color: #222;
+}
+.login__emailPass > button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login__lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.login__lang > p {
+  color: gray;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.login__lang > p:hover {
+  color: gray;
+  margin-right: 5px;
+  text-decoration: underline;
+}
+
+.login__lang > .MuiSvgIcon-root {
+  color: gray;
+}
+
+.login__footer {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login__footer > p {
+  color: gray;
+  font-size: small;
+  cursor: pointer;
+}
+
+.login__footer > p:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__auth {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  .login__authOptions {
+    display: flex;
+    width: 100%;
+    border-right: none;
+    flex: 1;
+  }
+
+  .login__emailPass {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 0;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .login__forgButt {
+    display: flex;
+    width: 100%;
+  }
+
+  .login__emailPass > button {
+    width: 50%;
+  }
+
+  .login__label > h4 {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .login__authDesc {
+    margin-bottom: 0px;
+  }
+}
