@@ -132,6 +132,14 @@
   text-align: center;
 }
 
+.login__emailPass > p{
+  text-align: center;
+}
+
+.login__emailPass > p:hover{
+  color: #000;
+}
+
 .login__inputFields {
   display: flex;
   flex-direction: column;
@@ -210,6 +218,10 @@
   font-size: 15px;
   cursor: pointer;
   margin-top: 10px;
+}
+
+.login__emailPass > p:hover{
+  color: red;
 }
 
 .login__lang {

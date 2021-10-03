@@ -12,19 +12,25 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import "./QHeader.css";
 import { Avatar, Button, Input } from "@material-ui/core";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
-import db, { auth } from "../firebase";
+import { useDispatch, useSelector } from "react-redux";
+// import db, { auth } from "../firebase";
 import { ExpandMore, Link } from "@material-ui/icons";
 import firebase from "firebase";
+import { logout } from "../../Action/User";
+import axios from "axios";
+import { token } from "../../Utils/decodedToken";
+import { successModal } from "../../Utils/AlertModal";
 
 function QHeader() {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const [IsmodalOpen, setIsModalOpen] = useState(false);
   const [input, setInput] = useState("");
   const [inputUrl, setInputUrl] = useState("");
-  const questionName = input;
+  const userLogin = useSelector((state) => state.userLogin);
+
+  // console.log(userLogin?.userInfo?.userId);
 
   const Close = (
     <CloseIcon
@@ -36,29 +42,41 @@ function QHeader() {
     />
   );
 
-  const handleQuestion = (e) => {
+  const handleQuestion = async (e) => {
     e.preventDefault();
-    setIsModalOpen(false);
-
-    if (questionName) {
-      db.collection("questions").add({
-        user: user,
-        question: input,
-        imageUrl: inputUrl,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+    };
+    if (input !== "") {
+      const body = {
+        questionName: input,
+        questionUrl: inputUrl,
+        userId: userLogin?.userInfo?.userId
+      };
+      await axios
+        .post("/api/questions", body, config)
+        .then((res) => {
+          console.log(res.data);
+          console.log("question added successfully");
+          setIsModalOpen(false);
+          successModal('Question added successfully')
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
     setInput("");
     setInputUrl("");
-    alert("Question added successfully");
   };
 
   const handleLogout = () => {
-    if (window.confirm("Are you sure to lougout?")) {
-      auth.signOut();
+    
+      dispatch(logout());
       //alert("Logged out successfully");
-    }
   };
 
   return (
@@ -66,24 +84,24 @@ function QHeader() {
       <div className="qHeader-content">
         <div className="qHeader__logo">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/220px-Quora_logo_2015.svg.png"
+            src="https://video-public.canva.com/VAD8lt3jPyI/v/ec7205f25c.gif"
             alt="logo"
           />
         </div>
         <div className="qHeader__icons">
-          <div className="active qHeader__icon">
+          <div onClick = {() => window.location.href = '/'} className="active qHeader__icon">
             <HomeIcon />
           </div>
-          <div className="qHeader__icon">
+          <div onClick = {() => window.location.href = '/allSpaces'} className="qHeader__icon">
             <FeaturedPlayListOutlinedIcon />
           </div>
-          <div className="qHeader__icon">
+          <div onClick = {() => window.location.href = '/myQuestions'} className="qHeader__icon">
             <AssignmentTurnedInOutlinedIcon />
           </div>
-          <div className="qHeader__icon">
+          <div onClick = {() => window.location.href = '/allUsers'} className="qHeader__icon">
             <PeopleAltOutlinedIcon />
           </div>
-          <div className="qHeader__icon">
+          <div onClick = {() => window.location.href = '/notifications'} className="qHeader__icon">
             <NotificationsOutlinedIcon />
           </div>
         </div>
@@ -92,14 +110,18 @@ function QHeader() {
           <input type="text" placeholder="Search Quora" />
         </div>
         <div className="qHeader__Rem">
-          <div className="qHeader__avatar">
+          <div
+            style={{
+              border: "1px solid lightgray",
+              borderRadius: "50%",
+            }}
+            className="qHeader__avatar"
+          >
             <Avatar
               onClick={handleLogout}
               className="Avatar"
               src={
-                user.photo
-                  ? user.photo
-                  : "https://images-platform.99static.com//_QXV_u2KU7-ihGjWZVHQb5d-yVM=/238x1326:821x1909/fit-in/500x500/99designs-contests-attachments/119/119362/attachment_119362573"
+                "http://tinygraphs.com/labs/isogrids/hexa16/tinygraphs?theme=heatwave&numcolors=4&size=220&fmt=svg"
               }
             />
           </div>
@@ -125,12 +147,11 @@ function QHeader() {
               <Avatar
                 className="avatar"
                 src={
-                  user.photo
-                    ? user.photo
-                    : "https://images-platform.99static.com//_QXV_u2KU7-ihGjWZVHQb5d-yVM=/238x1326:821x1909/fit-in/500x500/99designs-contests-attachments/119/119362/attachment_119362573"
+                  "http://tinygraphs.com/labs/isogrids/hexa16/tinygraphs?theme=heatwave&numcolors=4&size=220&fmt=svg"
                 }
               />
-              <p>{user.disPlayName ? user.disPlayName : user.email} asked</p>
+              {/* <img src="http://tinygraphs.com/squares/helloworld" /> */}
+              {/* <p>{user?.disPlayName ? user?.disPlayName : user?.email} asked</p> */}
               <div className="modal__scope">
                 <PeopleAltOutlinedIcon />
                 <p>Public</p>
@@ -144,14 +165,33 @@ function QHeader() {
                 type="text"
                 placeholder="Start your question with 'What', 'How', 'Why', etc. "
               />
-              <div className="modal__fieldLink">
-                <Link />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                className="modal__fieldLink"
+              >
+                {/* <Link /> */}
                 <input
+                  style={{
+                    width: "100%",
+                    margin: "5px 0",
+                    border: "1px solid lightgray",
+                    padding: "10px",
+                    outline: "2px solid #000",
+                  }}
                   value={inputUrl}
                   onChange={(e) => setInputUrl(e.target.value)}
                   type="text"
                   placeholder="Optional: inclue a link that gives context"
                 ></input>
+                {inputUrl !== "" && (
+                  <img style={{
+                    height: "40vh",
+                    objectFit: "contain"
+                  }} src={inputUrl} alt=""></img>
+                )}
               </div>
             </div>
             <div className="modal__buttons">

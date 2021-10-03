@@ -1,54 +1,52 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./Login.css";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { auth, provider } from "../../firebase";
-import FacebookIcon from "@material-ui/icons/Facebook";
-// import logo from "../img/QAS logo.png";
+import { login, register } from "../../Action/User";
+import {auth, provider} from '../../firebase'
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(false)
+
+  const dispatch = useDispatch();
 
   const signIn = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((auth) => alert("Signed In"))
-      .catch((e) => {
-        alert(e.message);
-      });
+    auth.signInWithPopup(provider).then((auth) => {
+      console.log(auth)
+    })
   };
+
+  const handleControlUser = (e) => {
+    e.preventDefault()
+    if(user){
+      registerSignIn(e)
+    } else {
+      handleSignIn(e)
+    }
+  }
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        //console.log(auth);
-        alert("Signed In successfully");
-      })
-      .catch((e) => alert(e.message));
+    if (email !== "" && password !== "") {
+      dispatch(login(email, password));
+    }
   };
 
   const registerSignIn = (e) => {
     e.preventDefault();
-
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          //console.log(auth);
-          alert("Registered successfully");
-        }
-      })
-      .catch((e) => alert(e.message));
+    if (email !== "" && password !== "") {
+      dispatch(register(email, password));
+    } else {
+      alert("fill out all details");
+    }
   };
   return (
     <div className="login">
       <div className="login__container">
         <div className="login__logo">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/220px-Quora_logo_2015.svg.png"
+            src="https://video-public.canva.com/VAD8lt3jPyI/v/ec7205f25c.gif"
             alt=""
           />
         </div>
@@ -121,9 +119,14 @@ function Login() {
             </div>
             <div className="login__forgButt">
               <small>Forgot Password?</small>
-              <button onClick={handleSignIn}>Login</button>
+              <button onClick={handleControlUser}>{user ? 'Register' : 'Login'}</button>
             </div>
-            <button onClick={registerSignIn}>Register</button>
+            <p style ={{
+              fontSize: "13px",
+              color: "#777",
+              cursor: "pointer"
+            }} onClick = {() => setUser(!user)}>{!user ? 'New user | Register' : 'Already registered | Login'}</p>
+            {/* <button onClick={registerSignIn}>Register</button> */}
           </div>
         </div>
         {/* <div className="login__lang">

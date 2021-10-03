@@ -1,0 +1,87 @@
+.allUser{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.allUser-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 90vw;
+    justify-content: center;
+    /* width: 100%; */
+}
+
+.allUser-container > h4{
+    font-weight: 600;
+}
+
+.allUser-container > p{
+margin: 5px 0;
+}
+
+.allUser-content{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 90vw;
+    /* width: 100%; */
+    /* margin: 10px 30px; */
+}
+
+.allUser-content > h3{
+    font-weight: 500;
+    font-size: 25px;
+    margin: 5px 20px;
+}
+
+.allUser-space{
+    display: flex;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    background-color: rgba(107, 105, 105, 0.472);
+    border: 2px solid lightslategray;
+    border-radius: 3px;
+}
+
+.allUsers{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.allUserStrip{
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 10px;
+    margin: 5px 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.allUserStrip > img{
+    border-radius: 10px;
+    width: 60px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.content > p{
+    font-weight: 600;
+    color: rgba(26, 25, 25, 0.959);
+}
+
+.content > small{
+    font-size: 12px;
+    color: rgb(49, 49, 49);
+}
